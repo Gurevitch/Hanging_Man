@@ -4,49 +4,48 @@ using System.Text;
 
 namespace Hanging_man
 {
-    class PrintMan
+    public class HangingMenPrinter
     {
-        public static void Print_Man(int numOfTry)
+        public void PrintMan(int numOfTry)
         {
-
             switch(numOfTry)
             {
                 case 1:
                     {
                         Console.WriteLine("O");
-                        return;
+                        break;
                     }
                 case 2:
                     {
                         Console.WriteLine("O");
                         Console.WriteLine("|");
-                        return;
+                        break;
                     }
                 case 3:
                     {
                         Console.WriteLine(" O");
                         Console.WriteLine("/|");
-                        return;
+                        break;
                     }
                 case 4:
                     {
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
-                        return;
+                        break;
                     }
                 case 5:
                     {
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         Console.WriteLine(@" /");
-                        return;
+                        break;
                     }
                 case 6:
                     {
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         Console.WriteLine(@" /\");
-                        return;
+                        break;
                     }
                 case 7:
                     {
@@ -54,7 +53,7 @@ namespace Hanging_man
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         Console.WriteLine(@" /\");
-                        return;
+                        break;
                     }
                 case 8:
                     {
@@ -62,7 +61,7 @@ namespace Hanging_man
                         Console.WriteLine("   O");
                         Console.WriteLine(@"  /|\");
                         Console.WriteLine(@"   /\");
-                        return;
+                        break;
                     }
                 case 9:
                     {
@@ -70,7 +69,7 @@ namespace Hanging_man
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"  /|\");
                         Console.WriteLine(@"   /\");
-                        return;
+                        break;
                     }
                 case 10:
                     {
@@ -78,7 +77,7 @@ namespace Hanging_man
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"| /|\");
                         Console.WriteLine(@"   /\");
-                        return;
+                        break;
                     }
                 case 11:
                     {
@@ -86,7 +85,7 @@ namespace Hanging_man
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"| /|\");
                         Console.WriteLine(@"|  /\");
-                        return;
+                        break;
                     }
                 case 12:
                     {
@@ -95,10 +94,9 @@ namespace Hanging_man
                         Console.WriteLine(@"| /|\");
                         Console.WriteLine(@"|  /\");
                         Console.WriteLine("| ");
-                        return;
+                        break;
                     }
             }
-
             return;
         }
     }
