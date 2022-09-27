@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oTAJAtQXVfx5ys2igE52KsEty21zaQ91K54H7FQMgKED0nWnfUOhiKBETDP7ruIOt8a+Km01sDQiG+8sZU2VDw==",
+  "dgSpecHash": "FFb+RvDIghaZc+APK0kp0j4A5jYd0ehSb42yc8hVYz7sQzmB2IOR4fWf4FlyoYnN7T2pHzPJrLrolMGfiD5FWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Roii\\source\\repos\\Hanging man\\Hanging man\\Hanging man.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Roii\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+  ],
   "logs": []
 }

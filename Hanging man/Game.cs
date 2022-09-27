@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
-
+using HtmlAgilityPack;
 namespace Hanging_man
 {
     class GameChar
@@ -33,19 +34,23 @@ namespace Hanging_man
         }
         private string GetLevelFromWeb()
         {
-            string[] lines;
-            var rand = new Random();
-            var ListOfFoundWords = new List<string>();
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument document = web.Load(@"https://ischoolconnect.com/blog/60-new-words-in-english-with-meanings/");
+            
+            Random rand = new Random();
+            var randNum = rand.Next(1, 25);
+            
+            var title = document.DocumentNode.SelectNodes("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[2]/td[2]").First().InnerText;
+            var description = document.DocumentNode.SelectNodes("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[3]/td[3]").First().InnerText;
 
-            lines = System.IO.File.ReadAllLines(@"https://ischoolconnect.com/blog/60-new-words-in-english-with-meanings/");
-            foreach (var line in lines)
-            {
-                if (File.Exists(line))
-                {
-                }
-            }
-            var WordIndexToReturn = rand.Next(ListOfFoundWords.Capacity);
-            return ListOfFoundWords[WordIndexToReturn];
+            title = string.Format("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[{0}]/td[2]", randNum);
+            description = string.Format("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[{0}]/td[3]", randNum);
+
+            //Console.WriteLine(document.DocumentNode.SelectNodes(title).First().InnerText);
+            //Console.WriteLine();
+            //Console.WriteLine(document.DocumentNode.SelectNodes(description).First().InnerText);
+
+            return document.DocumentNode.SelectNodes(title).First().InnerText;
         }
         private void InitWord()
         {
