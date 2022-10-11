@@ -12,29 +12,39 @@ namespace Hanging_man
             {
                 case 1:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left",12 -numOfTry );
                         Console.WriteLine("O");
                         break;
                     }
                 case 2:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine("O");
                         Console.WriteLine("|");
                         break;
                     }
                 case 3:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" O");
                         Console.WriteLine("/|");
                         break;
                     }
                 case 4:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         break;
                     }
                 case 5:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         Console.WriteLine(@" /");
@@ -42,6 +52,8 @@ namespace Hanging_man
                     }
                 case 6:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
                         Console.WriteLine(@" /\");
@@ -49,6 +61,8 @@ namespace Hanging_man
                     }
                 case 7:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" |");
                         Console.WriteLine(" O");
                         Console.WriteLine(@"/|\");
@@ -57,6 +71,8 @@ namespace Hanging_man
                     }
                 case 8:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" --|");
                         Console.WriteLine("   O");
                         Console.WriteLine(@"  /|\");
@@ -65,6 +81,8 @@ namespace Hanging_man
                     }
                 case 9:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" --|");
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"  /|\");
@@ -73,6 +91,8 @@ namespace Hanging_man
                     }
                 case 10:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" --|");
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"| /|\");
@@ -81,6 +101,8 @@ namespace Hanging_man
                     }
                 case 11:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" --|");
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"| /|\");
@@ -89,6 +111,8 @@ namespace Hanging_man
                     }
                 case 12:
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("you got more {0} errors left", 12 - numOfTry);
                         Console.WriteLine(" --|");
                         Console.WriteLine("|  O");
                         Console.WriteLine(@"| /|\");

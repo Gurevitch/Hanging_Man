@@ -38,19 +38,15 @@ namespace Hanging_man
             HtmlDocument document = web.Load(@"https://ischoolconnect.com/blog/60-new-words-in-english-with-meanings/");
             
             Random rand = new Random();
-            var randNum = rand.Next(1, 25);
-            
-            var title = document.DocumentNode.SelectNodes("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[2]/td[2]").First().InnerText;
-            var description = document.DocumentNode.SelectNodes("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[3]/td[3]").First().InnerText;
+            var randNum = rand.Next(2, 15);
+            var randomSection = rand.Next(1, 4);
+            var title = $"//*[@id=\"post-15926\"]/div[{randomSection}]/figure[1]/table/tbody/tr[{randNum}]/td[2]";
+            var descriptionPath = $"//*[@id=\"post-15926\"]/div[{randomSection}]/figure[1]/table/tbody/tr[{randNum}]/td[3]";
+            var description = document.DocumentNode.SelectNodes(descriptionPath).First().InnerText;
+            description = description.Substring(0, description.IndexOf('.')).Replace("&amp;","&");
+            Console.WriteLine("the description of the word is: " + description );
 
-            title = string.Format("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[{0}]/td[2]", randNum);
-            description = string.Format("//*[@id=\"post-15926\"]/div[2]/figure[1]/table/tbody/tr[{0}]/td[3]", randNum);
-
-            //Console.WriteLine(document.DocumentNode.SelectNodes(title).First().InnerText);
-            //Console.WriteLine();
-            //Console.WriteLine(document.DocumentNode.SelectNodes(description).First().InnerText);
-
-            return document.DocumentNode.SelectNodes(title).First().InnerText;
+            return (document.DocumentNode.SelectNodes(title).First().InnerText).ToLower();
         }
         private void InitWord()
         {
@@ -72,7 +68,7 @@ namespace Hanging_man
                         _gameWord = "happiness";
                         break;
                    case 3:
-                        _gameWord = "tottenham hotspurs";
+                        _gameWord = "tottenham-hotspurs";
                         break;
                     case 4:
                         {
@@ -88,7 +84,9 @@ namespace Hanging_man
                 throw new StringIsEmptyException("the string was empty or null");
             }
 
-            _wordGuess = Enumerable.Range(0, _gameWord.Length).Select(num => new GameChar(_gameWord[num])).ToList();
+            _wordGuess = Enumerable.Range(0, _gameWord.Length)
+                                   .Where(num => _gameWord[num] != '-' || _gameWord[num] != ' ')
+                                   .Select(num => new GameChar(_gameWord[num])).ToList();
         }
         private (char,bool) GetLetters()
         {
@@ -113,13 +111,13 @@ namespace Hanging_man
         public class StringIsEmptyException : Exception
         {
             public StringIsEmptyException(string message) : base(message)
-            {
-            }
+            {}
         }
         public void Start()
         {
             InitWord();
             string wordToPrint = string.Join(" ", _wordGuess.Select(gamechar => gamechar.CharUsedOrNot ? gamechar.WordChar : '_'));
+            
             Console.WriteLine(wordToPrint);
             while (_errors < MAX_ERRORGUESSES && _wordGuess.Any(wordchar => !wordchar.CharUsedOrNot))
             {
@@ -132,16 +130,25 @@ namespace Hanging_man
                 wordToPrint = string.Join(" ",_wordGuess.Select(gamechar => gamechar.CharUsedOrNot? gamechar.WordChar : '_'));
 
                 Console.WriteLine(wordToPrint);
-                Console.WriteLine(string.Join(", ",_letterList ));
+                Console.WriteLine(string.Join(" , ",_letterList ));
             }
             if (_wordGuess.All(wordchar => wordchar.CharUsedOrNot))
             {
-                Console.WriteLine("WHhoh you finished the game!!!");
+                Console.WriteLine("Whoh you finished the game!!!");
             }
             else
             {
                 Console.WriteLine("maybe next time..");
+                Console.WriteLine("the word was {0}", _wordGuess);
             }
         }
     }
 }
+/*
+TBD
+-fix for each word, it get only once rather then multi times
+-server,client
+-front
+-Xunit test
+ 
+ */
